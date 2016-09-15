@@ -1,0 +1,42 @@
+<style>
+    body {
+        font-size: 12px;
+    }
+
+    .large-4 {
+        border: solid #e5e5e5 1px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .profile-img {
+        width: 40px;
+    }
+
+    .column:last-child:not(:first-child), .columns:last-child:not(:first-child) {
+        float: left;
+    }
+</style>
+
+<div id="content">
+    <div class="row">
+        <h2 class="text-center">Blog</h2>
+
+        <?php foreach ($posts as $post) : ?>
+        <div class="large-4 large-offset-4 column">
+
+            <?php if ($post->picture) : ?>
+              <div><img src="<?php echo $post->picture ?>"></div>
+            <?php endif; ?>
+
+            <div>
+                <img class="profile-img" src="<?php echo $post->profile_img ?>">
+                <span><?php echo $post->user_name ?></span>
+            </div>
+
+            <div><p><?php echo $post->message ?></p></div>
+            <div class="text-right">created: <?php echo $post->created ?></div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div>
